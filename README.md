@@ -1,5 +1,5 @@
 # COMETS WEB
-Le site web officiel du club COMÉTS de l'Université des Technologies supérieures
+Le site web officiel du club COMÉTS de l'Université de Technologie Supérieure
 
 Bienvenue sur la page officielle du Club de Moto Électrique de l'École de Technologie Supérieure (ÉTS). En tant que passionnés de moto et fervents défenseurs de l'électromobilité, nous sommes fiers de créer une communauté dynamique et engagée au sein de l'établissement.
 
