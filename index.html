@@ -1,91 +1,131 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMETS | Bienvenue</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-  </head>
-  <body>
 
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li class="menu-text">COMETS</li>
-          <li><a href="mission">Mission</a></li>
-          <li><a href="equipe">Équipe</a></li>
-          <li><a href="sponsors">Sponsors</a></li>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+  <script>
+    //let text = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
+    let counter = 0;
+    let intervalId;
+    const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
+    function animateTitle() {
+      let text = document.title;
+      document.title = text.slice(counter) + text.slice(0, counter);
+      counter = (counter + 1) % text.length;
+    }
+
+    function startAnimation() {
+      counter = 0;
+      clearInterval(intervalId);
+      intervalId = setInterval(animateTitle, 1000);
+    }
+
+    async function stopAnimation() { //🏍️ 🔴 ⚫
+      clearInterval(intervalId);
+      document.title = "=========🏍️⚫⚫⚫";
+      await sleep(500)
+      document.title = "=========🏍️⚫⚫🔴";
+      await sleep(500)
+      document.title = "=========🏍️⚫🔴🔴";
+      await sleep(500)
+      document.title = "=========🏍️🔴🔴🔴";
+      await sleep(500)
+      document.title = "=========🏍️⚫⚫⚫";
+      await sleep(150)
+      document.title = "================🏍️";
+      startAnimation();
+    }
+
+    window.onload = function() {
+      document.title = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
+    startAnimation();
+};
+    window.onblur = stopAnimation;
+    window.onfocus = function() {
+      document.title = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
+    startAnimation();
+};
+  </script>
+</head>
+
+<body>
+
+  <!-- Start Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">COMETS</li>
+        <li><a href="mission">Mission</a></li>
+        <li><a href="equipe">Équipe</a></li>
+        <li><a href="sponsors">Sponsors</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- End Top Bar -->
+
+  <div class="callout large primary">
+    <div class="row column text-center">
+      <h1>COMÉTS</h1>
+      <h2 class="subheader">Club de moto électrique</h2>
+    </div>
+  </div>
+
+  <!-- We can now combine rows and columns when there's only one column in that row -->
+  <div class="row medium-8 large-7 columns">
+    <div class="blog-post">
+      <h3>Titre<small> 3/6/2015</small></h3>
+      <img class="thumbnail" src="https://placehold.it/850x350">
+      <p>Il y a du texte ici.</p>
+      <div class="callout">
+        <ul class="menu simple">
+          <li><a href="#">Author: G.D</a></li>
         </ul>
       </div>
     </div>
-    <!-- End Top Bar -->
 
-    <div class="callout large primary">
-      <div class="row column text-center">
-        <h1>COMÉTS</h1>
-        <h2 class="subheader">Club de moto électrique</h2>
+    <div class="blog-post">
+      <h3>Titre <small> 3/6/2015</small></h3>
+      <img class="thumbnail" src="https://placehold.it/850x350">
+      <p>Il y a du texte ici.</p>
+      <div class="callout">
+        <ul class="menu simple">
+          <li><a href="#">Author: G.D</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- We can now combine rows and columns when there's only one column in that row -->
-    <div class="row medium-8 large-7 columns">
-      <div class="blog-post">
-        <h3>Titre<small>3/6/2015</small></h3>
-        <img class="thumbnail" src="https://placehold.it/850x350">
-        <p>Il y a du texte ici.</p>
-        <div class="callout">
-          <ul class="menu simple">
-            <li><a href="#">Author: G.D</a></li>
-            <li><a href="#">Comments: 3</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="blog-post">
-        <h3>Titre <small>3/6/2015</small></h3>
-        <img class="thumbnail" src="https://placehold.it/850x350">
-        <p>Il y a du texte ici.</p>
-        <div class="callout">
-          <ul class="menu simple">
-            <li><a href="#">Author: G.D</a></li>
-            <li><a href="#">Comments: 3</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="blog-post">
-        <h3>Titre <small>3/6/2015</small></h3>
-        <img class="thumbnail" src="https://placehold.it/850x350">
-        <p>Il y a du texte ici.</p>
-        <div class="callout">
-          <ul class="menu simple">
-            <li><a href="#">Author: G.D</a></li>
-            <li><a href="#">Comments: 3</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="blog-post">
-        <h3>Titre <small>3/6/2015</small></h3>
-        <img class="thumbnail" src="https://placehold.it/850x350">
-        <p>Il y a du texte ici.</p>
-        <div class="callout">
-          <ul class="menu simple">
-            <li><a href="#">Author: G.D</a></li>
-            <li><a href="#">Comments: 3</a></li>
-          </ul>
-        </div>
+    <div class="blog-post">
+      <h3>Titre <small> 3/6/2015</small></h3>
+      <img class="thumbnail" src="https://placehold.it/850x350">
+      <p>Il y a du texte ici.</p>
+      <div class="callout">
+        <ul class="menu simple">
+          <li><a href="#">Author: G.D</a></li>
+        </ul>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
+    <div class="blog-post">
+      <h3>Titre <small> 3/6/2015</small></h3>
+      <img class="thumbnail" src="https://placehold.it/850x350">
+      <p>Il y a du texte ici.</p>
+      <div class="callout">
+        <ul class="menu simple">
+          <li><a href="#">Author: G.D</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+
 </html>
-
-
-
