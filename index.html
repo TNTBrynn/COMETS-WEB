@@ -7,48 +7,49 @@
   <title></title>
   <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
   <script>
-    //let text = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
-    let counter = 0;
-    let intervalId;
-    const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+    let intervalId; //setting up an interval for a Timeout function
+    const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)) //setting up a sleep function
 
+    //setting up a function to animate the title
     function animateTitle() {
-      let text = document.title;
-      document.title = text.slice(counter) + text.slice(0, counter);
-      counter = (counter + 1) % text.length;
+      if (document.title === "=🏍️===========") {
+        let text = document.title;
+        document.title = text.slice(3) + text.slice(0, 3);
+        intervalId = setTimeout(animateTitle, 400);
+      } else {
+        let text = document.title;
+        document.title = text.slice(2) + text.slice(0, 2);
+        intervalId = setTimeout(animateTitle, 400);
+      }
     }
-
-    function startAnimation() {
-      counter = 0;
-      clearInterval(intervalId);
-      intervalId = setInterval(animateTitle, 1000);
-    }
-
+    //setting up a function to stop the animation and start a new one
     async function stopAnimation() { //🏍️ 🔴 ⚫
-      clearInterval(intervalId);
+      clearTimeout(intervalId);
       document.title = "=========🏍️⚫⚫⚫";
-      await sleep(500)
+      await sleep(250)
       document.title = "=========🏍️⚫⚫🔴";
-      await sleep(500)
+      await sleep(250)
       document.title = "=========🏍️⚫🔴🔴";
-      await sleep(500)
+      await sleep(250)
       document.title = "=========🏍️🔴🔴🔴";
-      await sleep(500)
-      document.title = "=========🏍️⚫⚫⚫";
-      await sleep(150)
-      document.title = "================🏍️";
-      startAnimation();
+      await sleep(250)
+      document.title = "==========🏍️⚫⚫⚫";
+      await sleep(100)
+      document.title = "============🏍️";
+      intervalId = setTimeout(animateTitle, 300);
     }
 
+    //calling the proper functions when the window is loaded, blurred or focused
     window.onload = function() {
       document.title = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
-    startAnimation();
-};
+      intervalId = setTimeout(animateTitle, 300);
+    };
     window.onblur = stopAnimation;
     window.onfocus = function() {
-      document.title = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
-    startAnimation();
-};
+    clearTimeout(intervalId);
+    document.title = " -- COMETS | Bienvenue -- Club | Moto | Électrique";
+    intervalId = setTimeout(animateTitle, 300);
+    };
   </script>
 </head>
 
